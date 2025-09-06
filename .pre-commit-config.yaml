@@ -1,0 +1,24 @@
+repos:
+  - repo: local
+    hooks:
+      - id: lint-format-typecheck
+        name: lint, format, and type check
+        entry: make format lint type-check
+        language: system
+        files: \.py$
+        pass_filenames: false
+      - id: test
+        name: run tests
+        entry: make test
+        language: system
+        files: \.py$
+        pass_filenames: false
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: check-added-large-files
